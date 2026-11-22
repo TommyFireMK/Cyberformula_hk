@@ -1,0 +1,1 @@
+{"name":"asurada-gsx-cyber-circuit","private":true,"type":"module","scripts":{"start":"node server.mjs","test":"node test-physics.mjs && node test-vehicles.mjs && node test-championship.mjs && node test-multiplayer.mjs && node test-hk-routes.mjs && node test-urbanground.mjs && node test-public-server.mjs && node test-garage.mjs && node test-driver-aids.mjs"}}

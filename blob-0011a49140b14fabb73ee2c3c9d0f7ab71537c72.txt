@@ -1,0 +1,12 @@
+qa/
+*.zip
+*.log
+.site-workflow/
+node_modules/
+.openai/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.vs/

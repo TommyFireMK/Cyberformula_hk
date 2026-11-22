@@ -1,0 +1,10 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>香港路線・UrbanGround 實景對照</title><link rel="stylesheet" href="./urban-reference.css"></head><body>
+<header><a id="backToRacing" href="./">← 返回賽車</a><span>URBANGROUND × KML / 香港地理對照</span></header>
+<main><aside><span class="eyebrow">REAL HONG KONG / NATIVE UNITY</span><h1>香港實景對照</h1><p>這裡顯示本機 UrbanGround 的實際畫面。賽車場景按 KML 遊戲化重建；兩者共用經緯度，並非同一個渲染引擎。</p>
+<label for="referenceCourse">香港路線</label><select id="referenceCourse"></select><label for="referencePoint">KML 航點</label><select id="referencePoint"></select><p id="pointCoordinate" class="coordinate"></p>
+<button id="showPoint" disabled>在 UrbanGround 查看此位置 ↗</button><div class="nav-points"><button id="previousPoint" disabled>← 上一航點</button><button id="nextPoint" disabled>下一航點 →</button></div><div class="nav-points"><button id="zoomIn" disabled>放大實景 ＋</button><button id="zoomOut" disabled>縮小實景 −</button></div>
+<div id="connectionStatus" role="status">正在連接本機 UrbanGround…</div><div id="tileStatus"></div><button id="refreshReference">重新連接／更新畫面</button>
+<p class="note">只在自由探索模式切換位置；如有評估任務正在執行，系統會停止操作。沒有連接原生程式時，可先執行遊戲資料夾內的 Start_UrbanGround.cmd。</p>
+<p class="credits">實景：UrbanGround／香港地政總署 3D Visualisation Map。相關地理資料的知識產權屬香港特別行政區政府及原資料擁有人。</p></aside>
+<section class="observation"><div class="observation-head"><b>LIVE OBSERVATION</b><span id="observedPosition">等待連接</span></div><img id="nativeFrame" alt="UrbanGround 本機香港實景觀察"><div id="framePlaceholder">啟動 UrbanGround 後，這裡會顯示實際香港場景。</div></section></main>
+<script type="module" src="./urban-reference.js"></script></body></html>

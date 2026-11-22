@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>香港路線圖（港島山道線及市區四大路線）</name>
+    <description>包含圖 1（灣仔告士打道至赤柱峽道山道線及替代路線）與圖 2（觀塘繞道、龍翔道及呈祥道、西九龍公路、東區走廊）共 5 條主要路線與起訖點標記。</description>
+
+    <!-- 路線與標記樣式定義 -->
+    <Style id="route_hk_island_blue">
+      <LineStyle>
+        <color>ffff6600</color>
+        <width>6</width>
+      </LineStyle>
+    </Style>
+    <Style id="route_hk_island_alt">
+      <LineStyle>
+        <color>ff888888</color>
+        <width>4</width>
+      </LineStyle>
+    </Style>
+    <Style id="route_red_1">
+      <LineStyle>
+        <color>ff1c1ce6</color>
+        <width>6</width>
+      </LineStyle>
+    </Style>
+    <Style id="route_red_2">
+      <LineStyle>
+        <color>ff0055ff</color>
+        <width>6</width>
+      </LineStyle>
+    </Style>
+    <Style id="route_red_3">
+      <LineStyle>
+        <color>ff2222cc</color>
+        <width>6</width>
+      </LineStyle>
+    </Style>
+    <Style id="route_red_4">
+      <LineStyle>
+        <color>ff0000dd</color>
+        <width>6</width>
+      </LineStyle>
+    </Style>
+    <Style id="point_start">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="point_end">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://maps.google.com/mapfiles/kml/paddle/red-stars.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="point_waypoint">
+      <IconStyle>
+        <scale>0.9</scale>
+        <Icon>
+          <href>http://maps.google.com/mapfiles/kml/paddle/ylw-blank.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+
+    <!-- 圖 1：港島山道至南區路線 -->
+    <Folder>
+      <name>圖 1：港島山道至赤柱峽道線</name>
+      <description>灣仔告士打道經紅棉路、花園道、馬己仙峽道、司徒拔道、黃泥涌峽道、淺水灣道至赤柱峽道</description>
+
+      <Placemark>
+        <name>港島山道主路線（告士打道 → 赤柱峽道）</name>
+        <description><![CDATA[
+          <b>路線：</b>灣仔告士打道 → 紅棉路 → 花園道 → 馬己仙峽道 → 司徒拔道 → 黃泥涌峽道 → 淺水灣道 → 赤柱峽道<br/>
+          <b>距離：</b>約 13.6–15.1 公里（預估 25–30 分鐘）<br/>
+          <b>Google Maps 導航：</b><a href="https://www.google.com/maps/dir/%E9%A6%99%E6%B8%AF%E9%A6%99%E6%B8%AF%E5%B3%B6%E7%81%A3%E4%BB%94%E5%91%8A%E5%A3%AB%E6%89%93%E9%81%93/%E9%A6%99%E6%B8%AF%E9%A6%99%E6%B8%AF%E5%B3%B6%E4%B8%AD%E7%92%B0%E8%8A%B1%E5%9C%92%E9%81%93/%E9%A6%99%E6%B8%AF%E9%A6%99%E6%B8%AF%E5%B3%B6%E7%81%A3%E4%BB%94%E5%8F%B8%E5%BE%92%E6%8B%94%E9%81%93/%E9%A6%99%E6%B8%AF%E9%A6%99%E6%B8%AF%E5%B3%B6%E6%B7%BA%E6%B0%B4%E7%81%A3%E9%81%93/%E9%A6%99%E6%B8%AF%E9%A6%99%E6%B8%AF%E5%B3%B6%E8%B5%A4%E6%9F%B1%E5%B3%BD%E9%81%93/data=!4m17!4m16!1m2!1m1!19sIi4qLAoUChIJJbiLwlkABDQR5C863y_pwNASFAoSCXn-YX5bAAQ0Ee7YwzXmcSUk!1m2!1m1!19sIi4qLAoUChIJcybcfmUABDQRxtj39-r_pLQSFAoSCb3RHaNkAAQ0EVK1zN47pwdQ!1m2!1m1!19sIi4qLAoUChIJqTBAxUUABDQRq73kHCLWkwESFAoSCXn-YX5bAAQ0Ee7YwzXmcSUk!1m2!1m1!19sChIJV1T_M9QBBDQRtmAIN2uHBXM!1m2!1m1!19sChIJw-FsAG6qBjQRWpcg3_fqRk8!3e0">點擊開啟路線</a>
+        ]]></description>
+        <styleUrl>#route_hk_island_blue</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            114.1706,22.2793,0
+            114.1645,22.2798,0
+            114.1618,22.2775,0
+            114.1598,22.2758,0
+            114.1585,22.2764,0
+            114.1568,22.2748,0
+            114.1552,22.2725,0
+            114.1535,22.2705,0
+            114.1565,22.2690,0
+            114.1578,22.2662,0
+            114.1622,22.2650,0
+            114.1655,22.2642,0
+            114.1695,22.2618,0
+            114.1732,22.2625,0
+            114.1755,22.2648,0
+            114.1795,22.2642,0
+            114.1828,22.2612,0
+            114.1865,22.2595,0
+            114.1912,22.2570,0
+            114.1932,22.2555,0
+            114.1925,22.2515,0
+            114.1905,22.2470,0
+            114.1895,22.2435,0
+            114.1938,22.2398,0
+            114.1982,22.2368,0
+            114.2015,22.2345,0
+            114.2028,22.2305,0
+            114.2052,22.2268,0
+            114.2085,22.2238,0
+            114.2125,22.2195,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+
+      <Placemark>
+        <name>替代路線：經香港仔隧道（1號幹線）</name>
+        <description><![CDATA[
+          <b>路線：</b>灣仔告士打道 → 堅拿道天橋 → 香港仔隧道（1號幹線）→ 香島道 → 淺水灣道 → 赤柱峽道<br/>
+          <b>距離：</b>約 11.8–12.0 公里（預估 16–23 分鐘）
+        ]]></description>
+        <styleUrl>#route_hk_island_alt</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            114.1706,22.2793,0
+            114.1755,22.2795,0
+            114.1802,22.2788,0
+            114.1798,22.2735,0
+            114.1785,22.2615,0
+            114.1765,22.2505,0
+            114.1795,22.2465,0
+            114.1865,22.2442,0
+            114.1895,22.2435,0
+            114.1938,22.2398,0
+            114.1982,22.2368,0
+            114.2015,22.2345,0
+            114.2028,22.2305,0
+            114.2052,22.2268,0
+            114.2085,22.2238,0
+            114.2125,22.2195,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+
+      <Placemark>
+        <name>起點：告士打道（灣仔）</name>
+        <description>港島山道線起點（灣仔告士打道）</description>
+        <styleUrl>#point_start</styleUrl>
+        <Point>
+          <coordinates>114.1706,22.2793,0</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <name>途經點：馬己仙峽道／司徒拔道交界</name>
+        <description>山頂馬己仙峽道接司徒拔道彎段</description>
+        <styleUrl>#point_waypoint</styleUrl>
+        <Point>
+          <coordinates>114.1622,22.2650,0</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <name>途經點：黃泥涌峽道</name>
+        <description>司徒拔道迴旋處接黃泥涌峽道及淺水灣道</description>
+        <styleUrl>#point_waypoint</styleUrl>
+        <Point>
+          <coordinates>114.1932,22.2555,0</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <name>終點：赤柱峽道</name>
+        <description>港島山道線終點（赤柱峽道近赤柱道交界）</description>
+        <styleUrl>#point_end</styleUrl>
+        <Point>
+          <coordinates>114.2125,22.2195,0</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+
+    <!-- 圖 2：市區四大路線 -->
+    <Folder>
+      <name>圖 2：市區四大路線（熱點 ① 至 ④）</name>
+      <description>包含 ① 觀塘繞道、② 龍翔道及呈祥道、③ 西九龍公路、④ 東區走廊</description>
+
+      <!-- 路線 ① 觀塘繞道 -->
+      <Placemark>
+        <name>① 觀塘繞道（鑽石山 ↔ 藍田）</name>
+        <description><![CDATA[
+          <b>路線：</b>鑽石山（彩虹交匯處）↔ 觀塘繞道（2號幹線）↔ 藍田<br/>
+          <b>距離：</b>約 10.2 公里（預估 19 分鐘）<br/>
+          <b>Google Maps 導航：</b><a href="https://www.google.com/maps/dir/%E9%91%BD%E7%9F%B3%E5%B1%B1/%E9%A6%99%E6%B8%AF%E4%B9%9D%E9%BE%8D%E8%A7%80%E5%A1%98%E7%B9%9E%E9%81%93/%E9%A6%99%E6%B8%AF%E4%B9%9D%E9%BE%8D%E8%97%8D%E7%94%B0/data=!4m11!4m10!1m2!1m1!19sChIJqZSPc-cGBDQRmn1Sua3ZQAI!1m2!1m1!19sChIJdx4V1EoBBDQR3GLHVvbcbnw!1m2!1m1!19sChIJhfHoFlgBBDQRYMo4jzN3Q3Y!3e0">點擊開啟路線</a>
+        ]]></description>
+        <styleUrl>#route_red_1</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            114.2045,22.3365,0
+            114.2082,22.3315,0
+            114.2088,22.3260,0
+            114.2098,22.3210,0
+            114.2120,22.3175,0
+            114.2155,22.3135,0
+            114.2195,22.3105,0
+            114.2235,22.3078,0
+            114.2275,22.3048,0
+            114.2318,22.3038,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+
+      <Placemark>
+        <name>① 起點：鑽石山</name>
+        <description>觀塘繞道北端起點（鑽石山／彩虹交匯處）</description>
+        <styleUrl>#point_start</styleUrl>
+        <Point>
+          <coordinates>114.2045,22.3365,0</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <name>① 終點：藍田</name>
+        <description>觀塘繞道東南端終點（藍田／鯉魚門道交匯處）</description>
+        <styleUrl>#point_end</styleUrl>
+        <Point>
+          <coordinates>114.2318,22.3038,0</coordinates>
+        </Point>
+      </Placemark>
+
+      <!-- 路線 ② 龍翔道、呈祥道 -->
+      <Placemark>
+        <name>② 龍翔道、呈祥道（蝴蝶谷 ↔ 彩虹）</name>
+        <description><![CDATA[
+          <b>路線：</b>蝴蝶谷 ↔ 呈祥道 ↔ 龍翔道（7號幹線）↔ 彩虹<br/>
+          <b>距離：</b>約 11.1 公里（預估 12 分鐘）<br/>
+          <b>Google Maps 導航：</b><a href="https://www.google.com/maps/dir/%E9%A6%99%E6%B8%AF%E4%B9%9D%E9%BE%8D%E5%91%88%E7%A5%A5%E9%81%93/%E9%BE%8D%E7%BF%94%E9%81%93;+%E5%BD%A9%E8%99%B9%E9%82%A8%E7%B4%85%E8%90%BC%E6%A8%93%E5%A4%96/data=!4m11!4m10!1m2!1m1!19sChIJHx1nklUHBDQR4lwLSxx2CBk!1m5!1m1!19sChIJNafFgcUGBDQR9Iz8wJBf5Q8!2m2!1d114.20664!2d22.336689999999997!3e0">點擊開啟路線</a>
+        ]]></description>
+        <styleUrl>#route_red_2</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            114.1425,22.3408,0
+            114.1475,22.3418,0
+            114.1535,22.3435,0
+            114.1595,22.3442,0
+            114.1645,22.3432,0
+            114.1678,22.3428,0
+            114.1735,22.3435,0
+            114.1795,22.3428,0
+            114.1865,22.3422,0
+            114.1935,22.3418,0
+            114.2005,22.3402,0
+            114.2066,22.3367,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+
+      <Placemark>
+        <name>② 起點：蝴蝶谷</name>
+        <description>呈祥道西端起點（荔枝角蝴蝶谷）</description>
+        <styleUrl>#point_start</styleUrl>
+        <Point>
+          <coordinates>114.1425,22.3408,0</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <name>② 終點：彩虹</name>
+        <description>龍翔道東端終點（彩虹交匯處／彩虹邨）</description>
+        <styleUrl>#point_end</styleUrl>
+        <Point>
+          <coordinates>114.2066,22.3367,0</coordinates>
+        </Point>
+      </Placemark>
+
+      <!-- 路線 ③ 西九龍公路 -->
+      <Placemark>
+        <name>③ 西九龍公路（荔景 ↔ 西九龍）</name>
+        <description><![CDATA[
+          <b>路線：</b>荔景（青葵公路）↔ 西九龍公路（3號幹線）↔ 西九龍<br/>
+          <b>距離：</b>約 12.1–13.5 公里（預估 12–14 分鐘）<br/>
+          <b>Google Maps 導航：</b><a href="https://www.google.com/maps/dir/%E9%A6%99%E6%B8%AF%E9%9D%92%E8%91%B5%E5%85%AC%E8%B7%AF/%E9%A6%99%E6%B8%AF%E4%B9%9D%E9%BE%8D%E6%B2%B9%E9%BA%BB%E5%9C%B0%E8%A5%BF%E4%B9%9D%E9%BE%8D%E5%85%AC%E8%B7%AF/data=!4m8!4m7!1m2!1m1!19sChIJF9oF6LP4AzQRqeqXX563rJ0!1m2!1m1!19sIi4qLAoUChIJQwxcqqUABDQRZ0fsP_zYFi4SFAoSCVeE9jOVAAQ0EYIyJYf_7PRp!3e0">點擊開啟路線</a>
+        ]]></description>
+        <styleUrl>#route_red_3</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            114.1275,22.3485,0
+            114.1328,22.3415,0
+            114.1375,22.3355,0
+            114.1435,22.3298,0
+            114.1488,22.3262,0
+            114.1562,22.3195,0
+            114.1598,22.3145,0
+            114.1622,22.3065,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+
+      <Placemark>
+        <name>③ 起點：荔景</name>
+        <description>青葵公路／西九龍公路北端（荔景）</description>
+        <styleUrl>#point_start</styleUrl>
+        <Point>
+          <coordinates>114.1275,22.3485,0</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <name>③ 終點：西九龍</name>
+        <description>西九龍公路南端（西九龍／油麻地交匯處）</description>
+        <styleUrl>#point_end</styleUrl>
+        <Point>
+          <coordinates>114.1622,22.3065,0</coordinates>
+        </Point>
+      </Placemark>
+
+      <!-- 路線 ④ 東區走廊 -->
+      <Placemark>
+        <name>④ 東區走廊（銅鑼灣 ↔ 筲箕灣）</name>
+        <description><![CDATA[
+          <b>路線：</b>銅鑼灣 ↔ 東區走廊（4號幹線）↔ 筲箕灣<br/>
+          <b>距離：</b>約 10.7 公里（預估 16 分鐘）<br/>
+          <b>Google Maps 導航：</b><a href="https://www.google.com/maps/dir/%E9%A6%99%E6%B8%AF%E9%A6%99%E6%B8%AF%E5%B3%B6%E9%8A%85%E9%91%BC%E7%81%A3/%E9%A6%99%E6%B8%AF%E6%9D%B1%E5%8D%80%E8%B5%B0%E5%BB%8A/%E9%A6%99%E6%B8%AF%E9%A6%99%E6%B8%AF%E5%B3%B6%E7%AD%B2%E7%AE%95%E7%81%A3/data=!4m11!4m10!1m2!1m1!19sChIJf6xts1UABDQRagwS57GoPwI!1m2!1m1!19sChIJuT92ZaABBDQRD4kYTaiwlwk!1m2!1m1!19sChIJ3fW7GXgBBDQRxLDGFE9ILpg!3e0">點擊開啟路線</a>
+        ]]></description>
+        <styleUrl>#route_red_4</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            114.1885,22.2852,0
+            114.1925,22.2905,0
+            114.1995,22.2938,0
+            114.2065,22.2942,0
+            114.2125,22.2912,0
+            114.2185,22.2882,0
+            114.2238,22.2845,0
+            114.2295,22.2792,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+
+      <Placemark>
+        <name>④ 起點：銅鑼灣</name>
+        <description>東區走廊西端起點（銅鑼灣維園道口）</description>
+        <styleUrl>#point_start</styleUrl>
+        <Point>
+          <coordinates>114.1885,22.2852,0</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <name>④ 終點：筲箕灣</name>
+        <description>東區走廊東端（筲箕灣）</description>
+        <styleUrl>#point_end</styleUrl>
+        <Point>
+          <coordinates>114.2295,22.2792,0</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

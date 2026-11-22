@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#09131e"><meta name="description" content="駕駛 Asurada GSX，挑戰六條 KML 香港賽段、四條原創賽道、六關錦標賽及本機多人競速。附 UrbanGround 香港實景對照。">
+  <title>ASURADA GSX · Cyber Circuit</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three/three.module.js","three/addons/":"./vendor/three/jsm/"}}</script>
+</head>
+<body>
+  <canvas id="game" aria-label="Asurada GSX 三維賽車場景"></canvas>
+  <div class="vignette"></div><div id="boostFX"></div><div id="impactFX"></div>
+  <header>
+    <div class="brand"><svg viewBox="0 0 52 38" aria-hidden="true"><path d="M3 30 20 6l-2 14L42 3 30 22l19-5-28 19Z" fill="currentColor"/></svg><div>ASURADA<span>CYBER FORMULA / GSX-07</span></div></div>
+    <div class="event-name"><i></i><b id="eventLabel">CYBER CHAMPIONSHIP</b><span id="eventCourse">海岸速道</span></div>
+    <nav><button id="guideToggle" aria-pressed="true" title="煞車導線 L；只提供提示，不會自動駕駛">導線 ON</button><button id="assist" title="自動加速；仍需自行轉向和煞車">油門輔助 OFF</button><button id="sound" title="開關聲音 M" aria-label="開關聲音">聲音 OFF</button><button id="quality" title="切換畫質">畫質 HIGH</button><button id="fullscreen" title="全螢幕 F" aria-label="全螢幕">⛶</button></nav>
+  </header>
+  <main id="menu" class="menu">
+    <div class="eyebrow"><span>07</span> SUGO RACING TEAM</div>
+    <h1>THE NEXT<br><em>FORMULA.</em></h1>
+    <p class="intro">四條原創賽道・六條香港賽段・GSX 極速挑戰。</p>
+    <div class="race-setup" aria-label="賽道及關卡選擇">
+      <div class="mode-tabs"><button id="campaignMode" aria-pressed="true">錦標賽 / 闖關</button><button id="freeMode" aria-pressed="false">原創賽道</button><button id="hkMode" aria-pressed="false">香港賽段 / KML</button></div>
+      <div id="stageProgress" class="stage-progress"></div>
+      <div id="stageSelect" class="stage-select" aria-label="六個錦標賽關卡"></div>
+      <div id="courseSelect" class="course-select hidden" aria-label="自由競速賽道"></div>
+      <div class="mission-card"><svg id="coursePreview" viewBox="0 0 140 100" aria-label="所選賽道路線"></svg><div><span id="missionNumber"></span><h2 id="missionTitle"></h2><p id="missionGoal"></p><small id="courseTag"></small></div></div>
+      <p id="routeAccuracy" class="route-accuracy hidden">依稀疏 KML 航點重建，非實路測繪；高度及沿路景物為遊戲化近似。</p>
+      <button id="urbanReference" class="urban-reference hidden">UrbanGround 實景對照 <span>↗</span></button>
+    </div>
+    <div class="race-spec"><span><b id="menuLaps">02</b><span id="menuRaceType">圈競速</span></span><span><b>05</b> 台賽車</span><span><b id="trackLength">—</b><span id="menuLengthType">公里 / 圈</span></span></div>
+    <div class="garage-choice"><label for="garageSelect">選擇賽車 / GARAGE</label><select id="garageSelect" aria-describedby="vehicleDescription"></select><p id="vehicleDescription"></p></div>
+    <details class="driving-setup"><summary>駕駛設定 / CONTROLS</summary><label for="drivingProfile">操控方式</label><select id="drivingProfile"><option value="smooth">漸進操控 · 高速細緻轉向</option><option value="direct">直接操控 · 原有反應</option></select><p id="inputDevice">鍵盤 W/A/S/D · L 導線 · 支援標準手掣</p><p>導線：綠色可加速、黃色收油、紅色煞車。提示速度為街機估算，請自行控制。</p></details>
+    <button id="start" class="primary" disabled><span id="loadLabel">正在載入你的 3D 模型…</span><span>↗</span></button>
+    <button id="onlineEntry" class="online-entry">朋友連線 / 建立或加入房間 <span>↗</span></button>
+    <p class="multiplayer-hint">想與朋友同場？請選「朋友連線」，一起加入同一房間。</p>
+    <div class="personal-best">PERSONAL BEST <strong id="best">尚未完成賽事</strong></div>
+  </main>
+  <aside id="rivalGrid" class="rival-grid" aria-label="同場對手車款"></aside>
+  <section id="raceHUD" class="race-hud hidden" aria-label="賽事資訊">
+    <div class="position"><span>POSITION</span><b id="position">5<small>/ 5</small></b></div>
+    <div class="timing"><div><span id="lapLabel">LAP</span><b id="lap">01 <small>/ 03</small></b></div><div><span>RACE TIME</span><b id="time">00:00.000</b></div><div><span id="bestLapLabel">BEST LAP</span><b id="bestLap">—</b></div></div>
+    <button id="pause" class="icon-btn" aria-label="暫停賽事">Ⅱ</button>
+  </section>
+  <aside class="circuit"><div class="circuit-label"><span id="mapCourse">SEASIDE / 01</span><span id="sector">READY TO RACE</span></div><canvas id="minimap" width="440" height="290" aria-label="賽道小地圖"></canvas><div class="circuit-footer"><span><i></i> <span id="mapDriver">ASURADA GSX</span></span><span id="weatherLabel">28°C · DRY</span></div></aside>
+  <div id="missionHUD" class="mission-hud hidden"><b id="raceMission"></b><span id="raceGoal"></span></div>
+  <section id="driverHUD" class="driver-hud hidden" aria-label="駕駛提示與分段計時">
+    <div id="coachCue" class="coach-cue" data-state="go"><b id="coachAction">可加速</b><strong id="coachSpeed">—</strong><p id="coachDetail">準備出發</p></div>
+    <div class="lap-live"><div><span id="lapTimerLabel">CURRENT LAP / 本圈</span><b id="currentLapTime">00:00.000</b></div><div><span>DELTA / 同車最佳差</span><b id="lapDelta" data-pace="neutral">首圈建立基準</b></div></div>
+    <p id="lapReference" class="lap-reference">完成有效一圈後保存基準</p>
+    <div class="sector-splits"><div>S1 <b id="split1">—</b></div><div>S2 <b id="split2">—</b></div><div>S3 <b id="split3">—</b></div></div>
+    <div class="pedal-meters"><label>油門 <span><i id="throttleMeter"></i></span></label><label>煞車 <span><i id="brakeMeter"></i></span></label><label>轉向 <span class="steering-track"><i id="steerMeter"></i></span></label></div><small id="driverSource">鍵盤 / 觸控 · 漸進操控</small>
+  </section>
+  <section id="telemetry" class="telemetry hidden"><div class="gear"><span>GEAR</span><b id="gear">N</b></div><div class="speed"><b id="speed">000</b><span>KM/H</span></div><div id="rpm" class="rpm"></div></section>
+  <section id="boostHUD" class="boost-hud hidden"><div><span id="boostLabel">BOOST SYSTEM</span><b id="boostPct">100%</b></div><div class="boost-track"><div id="boostFill"></div></div><span class="boost-hint">按住 SHIFT 啟動推進器</span></section>
+  <section id="damageHUD" class="damage-hud hidden" data-level="normal" aria-label="車輛損傷狀態"><div class="damage-title"><span>VEHICLE INTEGRITY / 車況</span><b id="integrity">100%</b></div><div class="health-track"><i id="healthFill"></i></div><strong id="damageStatus">車況正常</strong><span id="performance">動力 100%</span><span id="boostAvailability">推進器可用</span></section>
+  <section id="pitHUD" class="pit-hud hidden" aria-label="PIT 維修狀態"><div><span>PIT / SUGO SERVICE</span><b id="pitState">PIT 維修站</b></div><p id="pitDetail">起終點後靠右入站，停在綠色維修格</p><div class="pit-progress"><i id="pitProgress"></i></div></section>
+  <div id="ai" class="ai"><div class="ai-eye"><i></i><i></i><i></i><i></i></div><div><span>ASURADA · ONBOARD SYSTEM</span><p id="aiMessage">系統準備中。正在同步賽車資料。</p></div></div>
+  <div id="countdown" class="countdown hidden" aria-live="polite"></div>
+  <div id="notice" class="notice hidden" role="status"></div>
+  <section id="onlinePanel" class="overlay hidden" aria-label="朋友連線房間"><div class="panel online-panel">
+    <div class="eyebrow">ONLINE GRID / 最多五人同場</div><h2>朋友連線</h2><div id="connectionScope" class="connection-scope"></div><p id="connectionHelp"></p>
+    <div id="connectionForm"><label class="field-label" for="onlineName">你的車手名稱</label><input id="onlineName" maxlength="16" placeholder="例如：SUGO 車手" autocomplete="off"><label class="field-label" for="onlineVehicle">參賽車款</label><select id="onlineVehicle"></select><label class="field-label" for="roomCode">房間代碼或邀請連結</label><input id="roomCode" placeholder="建立新房間可留空" autocomplete="off"><button id="createRoom" class="primary">建立朋友房間 <span>↗</span></button><button id="joinRoom" class="secondary">加入房間</button></div>
+    <div id="roomLobby" class="hidden"><p id="roomSummary" class="room-summary"></p><label class="field-label" for="inviteLink">邀請朋友加入</label><div class="invite-row"><input id="inviteLink" readonly aria-label="房間邀請連結"><button id="copyInvite">複製</button></div><p id="inviteHint"></p><div class="room-settings"><label>賽道<select id="roomCourse"></select></label><label>圈數<select id="roomLaps"><option value="1">1 賽段</option><option value="2">2 圈</option><option value="3">3 圈</option><option value="5">5 圈</option></select></label></div><label class="field-label" for="roomVehicle">你的賽車（選車後需重新準備）</label><select id="roomVehicle"></select><div id="roomPlayers" aria-live="polite"></div><button id="readyButton" class="secondary">準備比賽</button><button id="hostStart" class="primary">房主開始比賽 <span>↗</span></button><button id="leaveRoom" class="secondary">離開房間</button></div>
+    <a id="inviteDestination" class="secondary invite-destination hidden" rel="noopener noreferrer"></a><p id="onlineStatus" role="status">分享同一個房間連結，等大家準備後一同起步。</p><button id="hostEndRace" class="secondary hidden">房主結束本場，返回等候室</button><button id="closeOnline" class="secondary">返回選單 / 賽道</button>
+  </div></section>
+  <section id="pausePanel" class="overlay hidden"><div class="panel"><div class="eyebrow">RACE CONTROL</div><h2>暫停 / PAUSED</h2><p>深呼吸，準備下一個彎。</p><button id="resume" class="primary">繼續賽事 <span>↗</span></button><button id="restart" class="secondary">重新開始</button><button id="pauseMenu" class="secondary">返回賽道 / 關卡選擇</button></div></section>
+  <section id="results" class="overlay hidden"><div class="panel result-panel"><div id="resultEyebrow" class="eyebrow">CHEQUERED FLAG</div><h2 id="resultTitle">RACE COMPLETE</h2><div id="resultPosition" class="result-position">P1</div><div class="result-stats"><div><span>總時間</span><b id="resultTime"></b></div><div><span id="resultLapTitle">最快一圈</span><b id="resultLap"></b></div></div><p id="recordNote"></p><button id="nextStage" class="primary hidden">下一關 <span>↗</span></button><button id="raceAgain" class="secondary">重跑本場</button><button id="resultMenu" class="secondary">返回賽道 / 關卡選擇</button></div></section>
+  <div id="touch" class="touch-controls"><div><button data-key="KeyA" aria-label="向左轉">◀</button><button data-key="KeyD" aria-label="向右轉">▶</button></div><div><button data-key="ShiftLeft" class="touch-boost" aria-label="推進器">BOOST</button><button data-key="KeyS" aria-label="煞車">煞車</button><button data-key="KeyW" class="touch-go" aria-label="加速">油門</button></div></div>
+  <footer><div class="keys"><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> 駕駛</span><span><kbd>SHIFT</kbd> 推進器</span><span><kbd>SPACE</kbd> 手煞</span><span><kbd>C</kbd> 視角</span><span><kbd>L</kbd> 導線</span><span><kbd>R</kbd> 回正</span><span><kbd>P</kbd> 暫停</span></div><span id="perf">WEBGL · GSX ENGINE</span></footer>
+  <details id="debugPanel" class="debug hidden"><summary>GRAPHICS INSPECTOR</summary><label>固定視角 <select id="debugCamera"><option value="chase">追車 / Design</option><option value="near">近鏡</option><option value="far">遠鏡</option><option value="cockpit">車內</option></select></label><label>顯示 <select id="debugView"><option value="normal">原始渲染 / No post</option><option value="wire">線框</option><option value="road">賽道邊界／KML 航點</option></select></label><button id="debugReset">重設固定視角</button><div id="debugRouteControls" class="hidden"><label>KML 航點 <select id="debugRoutePoint"></select></label><button id="debugRouteInspect">固定航點檢視（不計比賽）</button></div><label>碰撞診斷 <select id="debugCrashLevel"><option value="light">低速擦邊</option><option value="medium">中速正撞</option><option value="fatal">高速致命撞擊</option></select></label><button id="debugCrash">執行護欄撞擊</button><button id="debugPit">PIT 維修驗證</button><output id="debugMetrics"></output></details>
+  <script type="module" src="./game.js"></script>
+</body></html>
+
